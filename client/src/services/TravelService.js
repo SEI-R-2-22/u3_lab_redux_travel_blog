@@ -31,6 +31,7 @@ export const getReviewByPost = async () => {
   try {
     const res = await Client.get(`/posts/${id}/review`)
     return res.data
+
   } catch (error) {
     throw error
   }
@@ -65,7 +66,7 @@ export const createComment = async () => {
 
 export const createReview = async () => {
   try {
-    const res = await Client.post('/reviews')
+    const res = await Client.post('/review')
     return res
   } catch (error) {
     throw error
