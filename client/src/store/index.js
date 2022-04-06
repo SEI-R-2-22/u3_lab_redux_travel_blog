@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
+import PostReducer from './reducers/PostReducer'
+
 const store = createStore(
   combineReducers({
-    departmentState: DepartmentReducer
+    postsState: PostReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))
 )

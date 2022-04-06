@@ -14,7 +14,7 @@ router.get('/posts/:id/review', controllers.getReviewByPost)
 
 router.get('./comments', controllers.getAllComments)
 
-router.get('/posts/:id/comments', controllers.getAllComments)
+router.get('/posts/:id/comments', controllers.getCommentsByPost)
 
 router.post('/comments', controllers.createComment)
 
