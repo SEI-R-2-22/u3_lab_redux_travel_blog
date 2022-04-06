@@ -23,3 +23,17 @@ export const LoadPosts = () => {
     }
   }
 }
+
+export const LoadComments = () => {
+  return async (dispatch) => {
+    try {
+      const comments = await getAllComments()
+      dispatch({
+        type: GET_COMMENTS,
+        payload: comments
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
