@@ -8,7 +8,7 @@ import CommentReducer from './reducers/CommentReducer'
 const store = createStore(
   combineReducers({
     postsState: PostReducer,
-    commentsState: CommentReducer,
+    commentState: CommentReducer,
     reviewsState: ReviewReducer
   }),
   composeWithDevTools(applyMiddleware(thunk))

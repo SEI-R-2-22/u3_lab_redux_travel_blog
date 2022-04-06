@@ -4,11 +4,11 @@ import {
   allReviews,
   getReviewByPost,
   getAllComments,
-  getCommentsByPost,
+  getCommentByPost,
   createComment,
   createReview
 } from '../../services/TravelService'
-import { GET_COMMENTS, GET_REVIEWS, GET_POSTS } from '../types'
+import { GET_COMMENTS, GET_POSTS, GET_REVIEWS } from '../types'
 
 export const LoadPosts = () => {
   return async (dispatch) => {
@@ -17,6 +17,20 @@ export const LoadPosts = () => {
       dispatch({
         type: GET_POSTS,
         payload: postList
+      })
+    } catch (error) {
+      throw error
+    }
+  }
+}
+
+export const LoadComments = () => {
+  return async (dispatch) => {
+    try {
+      const commentList = await getAllComments()
+      dispatch({
+        type: GET_COMMENTS,
+        payload: commentList
       })
     } catch (error) {
       throw error
