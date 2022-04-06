@@ -60,14 +60,17 @@ const main = async () => {
 
   const comments = [
     {
+      post: postOne._id,
       username: 'Guillermo',
       comment: 'I would love to visit one day.'
     },
     {
+      post: postTwo._id,
       username: 'DeJuan',
       comment: 'Amazing view'
     },
     {
+      post: postThree._id,
       username: 'Michelle',
       comment: 'Wow! Love the place.'
     }

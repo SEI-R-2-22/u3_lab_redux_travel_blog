@@ -1,4 +1,4 @@
-const { Post, Review } = require('../models/index')
+const { Post, Review, Comment } = require('../models/index')
 
 const allPosts = async (req, res) => {
   try {
@@ -37,9 +37,51 @@ const getReviewByPost = async (req, res) => {
   }
 }
 
+const getAllComments = async (req, res) => {
+  try {
+    let comments = await Comment.find()
+    return res.status(200).json(comments)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const getCommentsByPost = async (req, res) => {
+  try {
+    let comments = await Comment.find({ post: req.params.id }).exec()
+    return res.status(201).json(comments)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const createComment = async (req, res) => {
+  try {
+    const comment = await new Comment(req.body)
+    await comment.save()
+    return res.status(201).json(comment)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const createReview = async (req, res) => {
+  try {
+    const review = await new Review(req.body)
+    await review.save()
+    return res.status(201).json(review)
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   allPosts,
   postId,
   allReviews,
-  getReviewByPost
+  getReviewByPost,
+  getAllComments,
+  getCommentsByPost,
+  createComment,
+  createReview
 }
