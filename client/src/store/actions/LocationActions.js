@@ -27,10 +27,10 @@ export const LoadPosts = () => {
 export const LoadComments = () => {
   return async (dispatch) => {
     try {
-      const commentList = await getAllComments()
+      const comments = await getAllComments()
       dispatch({
         type: GET_COMMENTS,
-        payload: commentList
+        payload: comments
       })
     } catch (error) {
       throw error

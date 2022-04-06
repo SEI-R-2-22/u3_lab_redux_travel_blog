@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { LoadComments } from '../store/actions/LocationActions'
 
-const mapStateToProps = ({ commentState}) => {
-    return { commentState }
+const mapStateToProps = ({ commentsState}) => {
+    return { commentsState }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -19,7 +19,7 @@ const Comment = (props) => {
         props.fetchCommentList()
     }, [])
 
-    const Comment = props.commentState.comments.map((comment) => (
+    const Comment = props.commentsState.comments.map((comment) => (
         <li key={comment._id}>
             <Link to={`/Comment/${comment._id}`}>{comment.comment}</Link>
         </li>
