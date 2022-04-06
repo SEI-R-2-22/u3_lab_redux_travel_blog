@@ -1,9 +1,10 @@
-import Client from '.'
+import Client from './'
 
 export const allPosts = async () => {
   try {
+    console.log('AllPosts Function')
     const res = await Client.get('/posts')
-    return res
+    return res.data.posts
   } catch (error) {
     throw error
   }
@@ -27,7 +28,7 @@ export const allReviews = async () => {
   }
 }
 
-export const getReviewByPost = async () => {
+export const getReviewByPost = async (id) => {
   try {
     const res = await Client.get(`/posts/${id}/review`)
     return res
