@@ -12,8 +12,8 @@ export const allPosts = async () => {
 
 export const postId = async (id) => {
   try {
-    const res = await Client.get(`/posts/${id}`)
-    return res
+    const res = await Client.geT(`/departments/${id}`)
+    return res.data
   } catch (error) {
     throw error
   }
@@ -22,7 +22,7 @@ export const postId = async (id) => {
 export const allReviews = async () => {
   try {
     const res = await Client.get('/reviews')
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
@@ -31,7 +31,7 @@ export const allReviews = async () => {
 export const getReviewByPost = async (id) => {
   try {
     const res = await Client.get(`/posts/${id}/review`)
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
@@ -40,7 +40,7 @@ export const getReviewByPost = async (id) => {
 export const getAllComments = async () => {
   try {
     const res = await Client.get('/comments')
-    return res
+    return res.data
   } catch (error) {
     throw error
   }
